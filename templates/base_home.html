@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block blog_entries %}
+
+    <section class="article-list">
+
+        {% for object in articles %}
+
+            <div class="article-item">
+                <div class="container">
+                    <div class="row row-list">
+                        <div class="col-md-3 col-md-offset-1 ">
+                            <p class="date">{{ object.created|date:"M d, Y" }}</p>
+                            <p class="category">{{ object.category }}</p>
+                        </div>
+
+                        <a href={% url "article_detail" category=object.category pk=object.id %}>
+                            <div class="col-md-8">
+                                <p class="title">{{ object.title }}</p>
+                                <p class="abstract">{{ object.abstract }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </section>
+    <!-- /.article-list -->
+    <!-- Pagination -->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+
+                    {% if articles.has_previous %}
+                        <li class="previous"><a href="?page={{ articles.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                        <li class="previous disabled"><span>previous</span></li>
+                    {% endif %}
+
+                    {% for page in paginator.page_range%}
+                        {% if articles.number == page %}
+                            <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="?page={{ page }}">{{ page }}</a></li>
+                        {% endif %}
+
+                    {% endfor %}
+
+                    {% if articles.has_next %}
+                        <li class="next"><a href="?page={{ articles.next_page_number}}">Next</a></li>
+                    {% else %}
+                        <li class="next disabled"><span>next</span></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.pagination -->
+
+{% endblock %}
