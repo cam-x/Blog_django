@@ -24,15 +24,14 @@
   </head>
 
 <body data-spy="scroll" data-target="#sidenav-scrollspy">
-    <div id="body_wrapper">
+    <div id="body-wrapper">
         <header class="header">
-            <div class="header_wrapper">
+            <div class="header-wrapper">
 
-                <div class="blog_logo">
+                <div class="blog-logo">
                     <a href={% url "index" %}><img src="/static/image/blog_logo.png"></a>
                 </div>
 
-                <!-- nav -->
                 <nav class="nav">
                     <ul>
                         <li class="btn-group">
@@ -52,7 +51,6 @@
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
-                <!-- /nav -->
 
             </div>
         </header>
@@ -62,11 +60,8 @@
         {% endblock %}
 
     </div>
-    <!-- /#body_wrapper -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Bootstrap core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/docs.min.js" %}"></script>

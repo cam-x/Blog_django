@@ -5,5 +5,5 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.blog_index, name="index"),
     url(r'^(?P<category>\w+)$', views.blog_index, name="index_category"),
-    url(r'^(?P<category>\w+)/(?P<pk>\d+)$', views.BlogDetail.as_view(), name="article_detail"),
+    url(r'^(?P<category>\w+)/(?P<slug>[\w-]+)$', views.blog_detail, name="article_detail"),
 )

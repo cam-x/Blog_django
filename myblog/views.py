@@ -1,20 +1,18 @@
-from django.views import generic
 from myblog.models import Article
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def blog_index(request, category=None):
     if category is None:
         article_list = Article.objects.all()
-        paginator = Paginator(article_list, 10)
-        page = 1
+        paginator = Paginator(article_list, 3)
     else:
-        article_list = Article.objects.filter(category=category)
-        paginator = Paginator(article_list, 10)
-        page = request.GET.get('page')
-
+        article_list = get_list_or_404(Article, category=category)
+        paginator = Paginator(article_list, 3)
+    page = request.GET.get('page')
     try:
+        # get article objects in the page wanted
         articles = paginator.page(page)
     except PageNotAnInteger:
         # if page is not an integer, deliver first page.
@@ -26,6 +24,6 @@ def blog_index(request, category=None):
     return render(request, "base_home.html", dict(paginator=paginator, articles=articles))
 
 
-class BlogDetail(generic.DetailView):
-    model = Article
-    template_name = "post.html"
+def blog_detail(request, category, slug):
+    article = get_object_or_404(Article, category=category, slug=slug)
+    return render(request, "post.html", dict(article=article))

@@ -1,9 +1,5 @@
 from django.db import models
 
-class ArticleQuerySet(models.QuerySet):
-    def published(self):
-        return self.filter(publish=True)
-
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
@@ -23,8 +19,8 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     article_id = models.IntegerField(default=0)
+    slug = models.SlugField(max_length=200, unique=True)
 
-    objects = ArticleQuerySet.as_manager()
 
     def __str__(self):
         return self.title
