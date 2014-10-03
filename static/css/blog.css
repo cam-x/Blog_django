@@ -11,6 +11,9 @@ body {
     margin: 0;
 }
 
+/*
+ * style of header
+ */
 
 .blog-logo {
     padding: 0;
@@ -27,12 +30,13 @@ body {
     box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3) inset;
 }
 
-
 #body-wrapper .header .header-wrapper {
     margin: 100px auto 110px auto;
 }
 
-
+/*
+ * navbar in header
+ */
 #body-wrapper .header .header-wrapper .nav {
     list-style: none;
     display: block;
@@ -61,28 +65,6 @@ body {
     border: none;
 }
 
-ul .dropdown-menu {
-    border-radius: 3px;
-    background-color: #f6f6f6;
-    min-width: 0;
-}
-
-.dropdown-menu {
-   padding-top: 0;
-   padding-bottom: 0;
-}
-
-.dropdown-menu>li>a {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-    color: #000000;
-    background-color: #b5ada5;
-    text-decoration: no-underline;
-}
-
 #body-wrapper .header .header-wrapper .nav li {
     position: relative;
     display: inline-block;
@@ -95,6 +77,35 @@ ul .dropdown-menu {
     text-shadow: 0 1px 0 #000;
 }
 
+#body-wrapper .header .header-wrapper .nav>ul>li>a:hover
+#body-wrapper .header .header-wrapper .nav>ul>li>a:visited
+#body-wrapper .header .header-wrapper .nav>ul>li>a:focus {
+    text-decoration: underline;
+}
+
+/*
+ * dropdown-menu in navbar
+ */
+.dropdown-menu {
+    border-radius: 3px;
+    background-color: #f6f6f6;
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 98px;
+}
+
+.dropdown-menu>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    color: #000000;
+    background-color: #b5ada5;
+    text-decoration: no-underline;
+}
 
 .dropdown-menu a,
 .dropdown-menu a:focus,
@@ -106,12 +117,21 @@ ul .dropdown-menu {
     text-decoration-line: underline;
 }
 
-
-#body-wrapper .header .header-wrapper .nav>ul>li>a:hover
-#body-wrapper .header .header-wrapper .nav>ul>li>a:visited
-#body-wrapper .header .header-wrapper .nav>ul>li>a:focus {
-
-    text-decoration: underline;
+/*
+ * article list area
+ */
+.article-list {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    max-width: 668px;
+    min-width: 270px;
+    background-color: #fff;
+    padding: 48px 1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
 }
 
 .article-item>.container {
@@ -159,9 +179,11 @@ a>.col-md-8 {
     font-size: 19px;
 }
 
-.article-content {
-    font-family: Arial,'HYQuanTangShiJ',serif;
-    font-size: 19px;
+/*
+ * a special style for article list when mouse enter into article item area
+ */
+.special {
+    background-color: #F8F8F8;
 }
 
 /*
@@ -182,67 +204,23 @@ a>.col-md-8 {
     background-color: lightgray;
 }
 
-.pagination>.previous, .next {
+.pagination>.previous,
+.pagination>.next {
     font-family: Merriweather, serif;
     font-style: italic;
 }
 
-/*
- * a special style for article list
- */
 
-.special {
-    background-color: #F8F8F8;
+
+
+
+/*
+ * article subtitle navigation in post page
+ */
+#article-sidenav a {
+    font-family: Arial,'HYQuanTangShiJ',serif;
 }
-
-
-/*
- * width of article content
- */
-
-.article-row >.col-md-8 {
-    width: 60%;
-}
-
-
-/*
- * article list style
- */
-
-.article-list {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 2;
-    max-width: 668px;
-    min-width: 270px;
-    background-color: #ffffff;
-    padding-top: 48px;
-    padding-right: 1px;
-    padding-left: 1px;
-    padding-bottom: 48px;
-    border-left: 1px solid rgba(0,0,0,0.2);
-    border-right: 1px solid rgba(0,0,0,0.2);
-    border-top: 1px solid rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    border-radius: 7px;
-}
-
-
-/*
- * comments
- */
-
-.comments {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/*
- * article subtitle navigation in post.html
- */
-
-#doc-sidenav>.active .active a {
+#article-sidenav >.active .active a {
     padding-left: 5px;
     font-weight: 700;
     color: #563d7c;
@@ -251,7 +229,7 @@ a>.col-md-8 {
 }
 
 
-#doc-sidenav>.active>a {
+#article-sidenav >.active>a {
     color: #563d7c;
     background-color: transparent;
     border-left: 2px solid #563d7c;
@@ -259,37 +237,42 @@ a>.col-md-8 {
 }
 
 
-#doc-sidenav li {
+#article-sidenav li {
     list-style: none;
 }
 
-#doc-sidenav>li>a{
+#article-sidenav >li>a{
     border-left: 2px solid #f6f6f6;
     padding-left: 5px;
-    color: #999;
-    font-size: 14px;
+    font-size: 18px;
     padding-top: 1px;
     padding-bottom: 1px;
     margin-top: 10px;
 }
 
-#doc-sidenav>li ul a{
+#article-sidenav >li ul a{
     border-left: 2px solid #f6f6f6;
     padding-left: 5px;
-    color: #999;
-    font-size: 13px;
+    font-size: 17px;
 }
 
 
 #sidenav-scrollspy {
     width: 200px;
-    padding-top: 80px;
+    padding-top: 250px;
 }
 
 .affix-top {
-    width: 316px;
+    width: 277px;
 }
 
+.affix-bottom {
+    width: 277px;
+}
+
+/*
+ * back to top
+ */
 .back-to-top {
     font-size: 40px;
     position: fixed;
@@ -300,4 +283,198 @@ a>.col-md-8 {
 
 .back-to-top a {
     color: #343a40 ;
+}
+
+/*
+ * body of post page
+ */
+.post {
+    background-color: rgb(240,240,240);
+}
+
+.article-wrapper {
+    background-color: #fafafa;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.article-row >.col-md-8 {
+    width: 70%;
+}
+
+.article-row >.col-md-offset-2 {
+    margin-left: 10%;
+}
+
+article header.article-info {
+    font-family: Merriweather,'HYQuanTangShiJ',serif;
+    padding: 20px 20px;
+}
+
+article header.article-info>h1 {
+    padding: 30px 20px;
+}
+
+article header.article-info>p.article-time {
+    text-align: left;
+    float: right;
+}
+
+article header.article-info>p.article-time>time {
+    padding: 10px 10px;
+}
+
+article header.article-info>p.article-author {
+    float: right;
+    margin-left: 10px;
+}
+
+article header.article-info>p.article-author>a {
+    padding-left:5px;
+}
+
+article .article-content {
+    font-family: Arial,'HYQuanTangShiJ',serif;
+    font-size: 19px;
+    padding: 50px 20px;
+}
+
+
+
+/*
+ * article navigation at the bottom of the page
+ */
+.article-nav {
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    height: 5em;
+    line-height: 5em;
+    font-size: 0.9em;
+    position: relative;
+    display: block;
+}
+.article-nav .prev {
+    width: 50%;
+    float: left;
+    text-align: left;
+    padding: 0;
+}
+
+.article-nav .next {
+    width: 50%;
+    float: right;
+    text-align: right;
+    padding: 0;
+    border-left: 1px solid #dbdbdb;
+}
+
+.article-nav a {
+    font-family: Arial,'HYQuanTangShiJ',serif;
+    font-size: 25px;
+    color: #000000;
+}
+
+
+.article-nav a:hover {
+    background-color: #343a40;
+    color:  #b5ada5;
+    text-decoration: none;
+}
+
+/*
+ * comments
+ */
+
+.comments {
+    max-width: 780px;
+    margin: auto 140px;
+}
+
+
+
+/*
+ * footer in the post page
+ */
+footer {
+    margin-top: 1em;
+    background: #343a40;
+    padding: 0 2% 0.5em;
+}
+
+#footer {
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+/*
+ * v-logo and animation
+ */
+#footer .line {
+    height: 14em;
+    margin: 0 auto;
+}
+
+#footer .line span {
+    position: absolute;
+    left: 3.68em;
+    margin: 0 0 1.5em;
+    display: block;
+    width: 0.5em;
+    height: 6.25em;
+    border-right: 0.125em solid #fff;
+}
+
+.anonymous {
+    width: 8.875em;
+    height: 8.875em;
+    background: no-repeat url("images/v.png") left top;
+    background-size: 8.875em 8.875em;
+    position: absolute;
+    top: 2.25em;
+    margin: 0 0 1.5em;
+    transition: transform 1s ease-out;
+}
+
+.anonymous:hover {
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(-360deg) ;
+}
+
+/*
+ * social font
+ */
+
+.social-font {
+    width: 18em;
+    position: absolute;
+    right: -3em;
+    top: 4em;
+}
+.social-font a {
+    color: #b5ada5;
+}
+
+.social-font a:hover {
+    color: #ffffff;
+}
+
+/*
+ * copyright
+ */
+.copyright {
+    text-align: center;
+    color: #b5ada5;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.copyright a {
+    color: #b5ada5;
 }

@@ -25,5 +25,26 @@ def blog_index(request, category=None):
 
 
 def blog_detail(request, category, slug):
+    """ get the article object by category and slug
+        get its previous and next article at the same time
+    """
     article = get_object_or_404(Article, category=category, slug=slug)
-    return render(request, "post.html", dict(article=article))
+    articles = get_list_or_404(Article, category=category)
+    article_previous = None
+    article_next = None
+
+    for i in range(len(articles)):
+        if articles[i].slug == slug:
+            if i == 0:
+                article_next = articles[i+1]
+                break
+            elif i == len(articles) - 1:
+                article_previous = articles[i-1]
+                break
+            else:
+                article_previous = articles[i-1]
+                article_next = articles[i+1]
+
+    return render(request, "post.html", dict(article=article,
+                                             article_previous=article_previous,
+                                             article_next=article_next))
